@@ -1,0 +1,23 @@
+{
+  "name": "@tibbo-tps/socket-name-parser",
+  "version": "0.0.3",
+  "description": "Normilize LTPP socket name",
+  "author": {
+    "name": "Dvorkin Dmitry",
+    "email": "dvorkin@tibbo.com",
+    "url": "https://tibbo.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tibbotech/node-ltps.git",
+    "directory": "mods/sockname-norm"
+  },
+  "bugs": {
+    "url": "https://github.com/tibbotech/node-ltps/issues"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [ "tibbo", "ltps", "sockets" ],
+  "license": "MIT"
+}
