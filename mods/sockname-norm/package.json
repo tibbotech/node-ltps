@@ -1,6 +1,6 @@
 {
   "name": "@tibbo-tps/socket-name-parser",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Normilize LTPP socket name",
   "author": {
     "name": "Leonid Polyakov",
@@ -24,6 +24,10 @@
   "scripts": {
     "test": "node test.js"
   },
-  "keywords": [ "tibbo", "ltps", "sockets" ],
+  "keywords": [
+    "tibbo",
+    "ltps",
+    "sockets"
+  ],
   "license": "MIT"
 }
