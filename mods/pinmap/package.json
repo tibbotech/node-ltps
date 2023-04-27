@@ -1,0 +1,30 @@
+{
+  "name": "@tibbo-tps/pinmap",
+  "version": "0.0.1",
+  "description": "Fin SoC pin# by S<x><y> and vise-versa",
+  "author": {
+    "name": "Dvorkin Dmitry",
+    "email": "dvorkin@tibbo.com",
+    "url": "https://tibbo.com"
+  },
+  "dependencies": {
+    "ini": "4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tibbotech/node-ltps.git",
+    "directory": "mods/pinmap"
+  },
+  "bugs": {
+    "url": "https://github.com/tibbotech/node-ltps/issues"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "tibbo",
+    "ltps",
+    "sockets"
+  ],
+  "license": "MIT"
+}
