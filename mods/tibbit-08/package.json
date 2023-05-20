@@ -1,0 +1,29 @@
+{
+  "name": "@tibbo-tps/tibbit-08",
+  "version": "0.0.6",
+  "description": "Wiegand and clock/data reader port",
+  "author": {
+    "name": "Dvorkin Dmitry",
+    "email": "dvorkin@tibbo.com",
+    "url": "https://tibbo.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tibbotech/node-ltps.git",
+    "directory": "mods/tibbit-08"
+  },
+  "bugs": {
+    "url": "https://github.com/tibbotech/node-ltps/issues"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "tibbo",
+    "ltps",
+    "sockets",
+    "wiegand",
+    "tibbit-08"
+  ],
+  "license": "MIT"
+}
