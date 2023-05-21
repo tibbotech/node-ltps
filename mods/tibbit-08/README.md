@@ -14,8 +14,9 @@ const Wiegand = require("./index.js");
 
 const {execSync} = require('child_process');
 
-// socket should be 'S01' for examle
-var sock = '0';
+// socket should be 'S5' for example
+// var sock = '0';
+var sock = 's5';
 
 var W = new Wiegand( sock);
 

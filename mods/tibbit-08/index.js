@@ -3,37 +3,48 @@ var fs = require( 'fs');
 
 class Wiegand {
  sock = '';
+ fpfx = '';
 
  constructor( _sock) {
    this.sock = _sock;
+   // search for Wiegand interfaces pfx
+   this.fpfx = this.search_sysdev( _sock);
  }
  
  read_and_trim( ) {
-   var r = fs.readFileSync( this.sysdev()+'mode', 'binary');
+   var r = fs.readFileSync( this.fpfx+'mode', 'binary');
    r = ( r ? r.trim() : '');
    return( r);   }
 
  // returns the directory of the SYS socket Wiegand interface
- sysdev() {
-   var r = '/sys/devices/platform/soc@B/soc@B:twg_';
-   r += this.sock;
-   r += '/';
-   return( r);  }
+ search_sysdev( _sock) {
+   var p = '/sys/devices/platform/soc@B/soc@B:twg_';
+   var fp = p + _sock + '/';
+   if ( fs.existsSync( fp)) return( fp);
+   for ( var i = 0; i < 100; i++) {
+     fp = p + i + '/';
+     if ( !fs.existsSync( fp)) continue;
+     fp = p + i + '/'+'of_node/tps-sock';
+     if ( !fs.existsSync( fp)) continue;
+     var r = fs.readFileSync( fp, 'binary').replace(/\0/g,'');
+     if ( r != _sock) continue;
+     return( p + i + '/');   }
+   return( '');   }
 
  // Mode: 0 is Wiegand, 1 is Clock/Data
  // may trow an exception if dev not exist!
  mode_get() {  return( this.read_and_trim( 'mode'));  }
- mode_set( _mode) {  fs.writeFileSync( this.sysdev()+'mode', _mode);  }
+ mode_set( _mode) {  fs.writeFileSync( this.fpfx+'mode', _mode);  }
 
  // Clear On-Read: delete data after read
  // may trow an exception if dev not exist!
  conr_get() {  return( this.read_and_trim( 'conr'));  }
- conr_set( _mode) {  fs.writeFileSync( this.sysdev()+'conr', _mode);  }
+ conr_set( _mode) {  fs.writeFileSync( this.fpfx+'conr', _mode);  }
 
  // Output control pin
  // may trow an exception if dev not exist!
  out0_get() {  return( this.read_and_trim( 'out0'));  }
- out0_set( _mode) {  fs.writeFileSync( this.sysdev()+'out0', _mode);  }
+ out0_set( _mode) {  fs.writeFileSync( this.fpfx+'out0', _mode);  }
 
  // Stats
  // may trow an exception if dev not exist!
@@ -47,7 +58,7 @@ class Wiegand {
    var B = '';
    // it handles the exception case if there is no data Driver returns ENXIO
    try {
-     B = fs.readFileSync( this.sysdev() + 'data', null);
+     B = fs.readFileSync( this.fpfx + 'data', null);
    } catch (_e) {  return( B);  }
    return( B) }
 
