@@ -1,6 +1,6 @@
 {
   "name": "@tibbo-tps/tibbit-08",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Wiegand and clock/data reader port",
   "author": {
     "name": "Dvorkin Dmitry",

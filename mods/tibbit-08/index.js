@@ -11,8 +11,8 @@ class Wiegand {
    this.fpfx = this.search_sysdev( _sock);
  }
  
- read_and_trim( ) {
-   var r = fs.readFileSync( this.fpfx+'mode', 'binary');
+ read_and_trim( _sfx) {
+   var r = fs.readFileSync( this.fpfx+_sfx, 'binary');
    r = ( r ? r.trim() : '');
    return( r);   }
 
